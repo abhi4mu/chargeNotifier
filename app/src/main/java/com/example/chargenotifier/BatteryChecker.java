@@ -8,6 +8,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -53,9 +54,12 @@ public class BatteryChecker extends BroadcastReceiver {
         else if(percentage==100 && isCharging && prev_bat!=100){
 
             Uri alert = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
-            float volume = (float) Math.log(100);
+
+            AudioManager audioManager = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
+            while(audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)!=audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC))
+                audioManager.adjustVolume(AudioManager.ADJUST_RAISE, AudioManager.FLAG_ALLOW_RINGER_MODES);
+
             player = MediaPlayer.create(context, alert);
-            player.setVolume(1-volume, 1-volume);
             player.setLooping(true);
             player.start();
         }
