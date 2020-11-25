@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Charge Notifier</string>
+    <string name="how_to_use">How To Use:</string>
+    <string name="p1" translatable="false">1.  This app works only if app is running(either in foreground or background).</string>
+    <string name="p2">"     So, when you plugged in charger open this app, leave it in background and do your work or leave phone behind(it's up to you, one way or other app works)."</string>
+    <string name="p3">2.  But first you have to make sure that app will not get killed by your phone due to battery optimization.</string>
+    <string name="p4">"     To ensure app is running without any problem turn off the battery optimization for this app (If you are using this app for the first time)."</string>
+    <string name="p5">"     Goto Settings(in your phone)->Apps List->Charge Notifier->Battery Optimization and choose 'don't optimize' or some option that means same."</string>
+    <string name="p6">"     We made our app in this way because if app continuosly checks whether your phone is charging or not throughout the day it will consume more battery."</string>
+
+</resources>
