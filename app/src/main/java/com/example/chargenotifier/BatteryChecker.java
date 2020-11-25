@@ -53,10 +53,9 @@ public class BatteryChecker extends BroadcastReceiver {
         else if(percentage==100 && isCharging && prev_bat!=100){
 
             Uri alert = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
-            //Ringtone r = RingtoneManager.getRingtone(context.getApplicationContext(), alert);
-            //r.play();
-
+            float volume = (float) Math.log(100);
             player = MediaPlayer.create(context, alert);
+            player.setVolume(1-volume, 1-volume);
             player.setLooping(true);
             player.start();
         }
